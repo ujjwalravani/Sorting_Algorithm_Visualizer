@@ -1,17 +1,16 @@
 body{
-  background-image: url('./audio/space.jpg');
-  background-size: cover;
   width: 100%;
-  background-color: rgb(255, 106, 255);
+  background-color: peachpuff;
   height: 100%;
 }
 .full{
   text-align: center;
 }
 .frame {
-  background-image: url('./audio/space.jpg');
-  background-size: cover;
-  margin: 0;
+  background-color: peachpuff;
+  margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,13 +18,18 @@ body{
 .container{
   margin-top: 10px;
   margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 500px;
 }
 .card {
-  width: 1000px;
+  width: 800px;
+  margin: auto auto;
+  margin-left: 1em;
+  margin-right: 1em;
   border-radius: 2em;
   padding-top: 0;
   padding-bottom: 0;
@@ -39,23 +43,21 @@ body{
   padding: 20px;
   display: flex;
   align-items: center;
-  max-width: 400px;
+  max-width: 450px;
   margin: auto auto;
-  margin-left: 32em;
-  /*border-bottom: 1px solid #f2f2f2;*/
   transition: 0.4s
 }
 .button{
       height: 70px;
-      font-size: large;
-      width: auto;
+      font-size: medium;
+      width: 80px;
       opacity: 1;
       font-family: 'Franklin Gothic Medium';
       background-color: white;
-      color: rgba(55,80,230,1);
+      color: black;
       transition : 0.4s;
-      margin-left: 10px;
-      margin-right: 10px;
+      margin-left: auto;
+      margin-right: auto;
       border-radius: 1em;
       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -63,14 +65,13 @@ body{
   align-items: center;
   height: 70px;
   width: auto;
-  font-size: large;
+  font-size: medium;
   font-family: 'Franklin Gothic Medium';
   background-color: white;
-  color: rgba(55,80,230,1);
+  color: black;
   transition : 0.4s;
-  /*margin-left: 10px;
-  margin-right: 10px;*/
-  margin: auto auto;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 1em;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -79,14 +80,10 @@ body{
 }
 .select:disabled{
   opacity: 0.6;
-  /*background-color: rgba(55,80,230,1);
-  color: white;*/
   cursor: not-allowed;
 }
 .button:disabled{
   opacity: 0.6;
-  /*background-color: rgba(55,80,230,1);
-  color: white;*/
   cursor: not-allowed;
 }
 .slider:disabled{

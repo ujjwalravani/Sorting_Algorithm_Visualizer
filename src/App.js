@@ -6,7 +6,6 @@ import mergesort from './algorithms/ms';
 import quicksort from './algorithms/qs';
 import { Component } from 'react';
 import Bar from './comps/Bar';
-//let first = 'Selection Sort'
 class App extends Component {
   state = { 
     array : [], 
@@ -14,8 +13,8 @@ class App extends Component {
     colorKey: [], //for color of bars
     colorSteps : [],//similar to arraySteps
     currentStep: 0,
-    count: 35,//number of bars
-    delay: 17,// according to this delay, we'll re-render the components
+    count: 25,//number of bars
+    delay: 25,// according to this delay, we'll re-render the components
     algorithm: 'Bubble Sort',
     timeouts: [],//for setTimeout()// will be updated
     disabled: false,
@@ -73,7 +72,6 @@ class App extends Component {
     let steps = this.state.arraySteps.slice();
     let colorsteps = this.state.colorSteps.slice();
     this.algorithms[this.state.algorithm](array,steps,colorsteps,0,array.length-1);
-    //this.algorithms[first](array,steps,colorsteps);
     this.setState({
       arraySteps: steps,
       colorSteps: colorsteps
@@ -94,6 +92,8 @@ class App extends Component {
     
     while(i< steps.length-this.state.currentStep && this.isunsorted()){
       setTimeout(() => this.setState({ disabled: false }), (steps.length-this.state.currentStep)*this.state.delay);
+      setTimeout(() => this.setState({ colorKey: new Array(this.state.array.length).fill(2) }), (steps.length-this.state.currentStep)*this.state.delay);
+
       let timeout = setTimeout(() =>{
         let currentStep = this.state.currentStep;
         this.setState({
@@ -105,10 +105,9 @@ class App extends Component {
       },this.state.delay*(i))
       i++;
    }
-
+    //this.state.colorSteps[colorSteps.length-1] = new Array(this.state.array.length).fill(2);
     this.setState({
       timeouts: timeouts,
-      //disabled: false
     })
   }
  changeAlgorithm = (e) => {
@@ -133,8 +132,13 @@ class App extends Component {
 			delay: parseInt(e.target.value,10),
 		});
 	};
-  generateBars = () => {
-		this.clearTimeout();
+  changebc = (e) =>{
+    this.clearTimeout();
+    this.clearColorKey();
+    this.setState({
+      count: parseInt(e.target.value),
+
+    },() =>{this.clearTimeout();
 		this.clearColorKey();
 
 		let barCount = this.state.count;
@@ -152,15 +156,7 @@ class App extends Component {
 				currentStep: 0,
 			},
 			() => this.generateSteps()
-		);
-	};
-  changebc = (e) =>{
-    this.clearTimeout();
-    this.clearColorKey();
-    this.setState({
-      count: parseInt(e.target.value),
-
-    },() =>this.generateBars());
+		)});
   };
   isunsorted =()=>{
     for(let k = 0;k<this.state.colorKey.length;k++){
@@ -199,16 +195,16 @@ class App extends Component {
           <label className='select'>
             <select className='select' disabled = {this.state.disabled} onChange={this.changeDelay}>
 
-              <option value = "17">Fast</option>
+              <option value = "25">Fast</option>
 
               <option value= "35">Medium</option>
 
-              <option value= "100">Slow</option>
+              <option value= "50">Slow</option>
             </select>
           </label>
           <label className='select slider'>
             <p className= 'slider' disabled = {this.state.disabled} style = {sliderStyle}>Size</p>
-            <input disabled = {this.state.disabled}type="range" min = '10' max = '35' step = '1' value = {this.state.count} onChange={this.changebc}/> {/*value is the defualt value of the slider*/}
+            <input disabled = {this.state.disabled}type="range" min = '10' max = '40' step = '1' value = {this.state.count} onChange={this.changebc}/> {/*value is the defualt value of the slider*/}
             <p disabled = {this.state.disabled} className = 'slider' style = {sliderStyle}>{this.state.count}</p>
           </label>
         <button disabled = {this.state.disabled} className='button' onClick={() => this.start()} >Play</button>
