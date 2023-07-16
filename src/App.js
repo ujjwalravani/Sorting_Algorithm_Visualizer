@@ -15,7 +15,7 @@ class App extends Component {
     currentStep: 0,
     count: 25,//number of bars
     delay: 25,// according to this delay, we'll re-render the components
-    algorithm: 'Bubble Sort',
+    algorithm: 'Selection Sort',
     timeouts: [],//for setTimeout()// will be updated
     disabled: false,
     //sorted: false,
@@ -177,16 +177,16 @@ class App extends Component {
         <div className="barsDiv container card">{bars}</div>
       </div>
       <div className="buttons">
-        <button disabled = {this.state.disabled} className='button' onClick={() => this.ArrayGenerate()} >Generate New Array</button>
+        <button disabled = {this.state.disabled} className='button' onClick={() => this.ArrayGenerate()} >Create New Array</button>
          <label className='select'>
             <select className='select' disabled= {this.state.disabled} value={this.state.algorithm} onChange={this.changeAlgorithm}>
+
+              <option value='Selection Sort'>Selection Sort</option>
 
               <option value= 'Bubble Sort'>Bubble Sort</option>
 
               <option value='Insertion Sort'>Insertion Sort</option>
 
-              <option value='Selection Sort'>Selection Sort</option>
-              
               <option value='Merge Sort'>Merge Sort</option>
 
               <option value='Quick Sort'>Quick Sort</option>

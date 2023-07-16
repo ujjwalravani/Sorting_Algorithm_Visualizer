@@ -42,15 +42,21 @@ body{
   align-items: center;
   padding: 20px;
   display: flex;
-  align-items: center;
   max-width: 450px;
   margin: auto auto;
+  /*@media only screen and (max-width: 600px) {
+    max-width: 200px;
+    margin-left: 0;
+  }*/
   transition: 0.4s
 }
 .button{
       height: 70px;
       font-size: medium;
       width: 80px;
+      @media only screen and (max-width: 600px) {
+          width: 17%;
+        }
       opacity: 1;
       font-family: 'Franklin Gothic Medium';
       background-color: white;
@@ -65,6 +71,9 @@ body{
   align-items: center;
   height: 70px;
   width: auto;
+  @media only screen and (max-width: 600px) {
+       width: 60px;
+    }
   font-size: medium;
   font-family: 'Franklin Gothic Medium';
   background-color: white;
@@ -74,6 +83,9 @@ body{
   margin-right: auto;
   border-radius: 1em;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.slider{
+  width: auto;
 }
 .button:hover {
     opacity: 0.8;  
